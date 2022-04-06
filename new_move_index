@@ -1,0 +1,19 @@
+PUT new_movie
+{
+  "mappings": {
+    "properties": {
+      "name": {
+        "type": "keyword"
+      },
+      "date released": {
+        "type": "date"
+      },
+      "rating": {
+        "type": "integer"
+      },
+      "gener":{
+        "type": "keyword"
+      }
+    }
+  }
+}
