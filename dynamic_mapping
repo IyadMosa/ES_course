@@ -1,0 +1,33 @@
+
+DELETE my_inex_01
+
+POST my_inex_01/_doc
+{
+  "mappings": {
+    "dynamic_templates": [
+      {
+        "string_as_float": {
+          "match_mapping_type": "string",
+          "match": "float-*",
+          "runtime": {
+            "type": "float"
+          }
+        },
+        "string_as_text": {
+          "match_mapping_type": "string",
+          "match": "full-*",
+          "runtime": {
+            "type": "text"
+          }
+        }
+      }
+    ]
+  }
+}
+
+POST my_inex_01/_doc/
+{
+  "float-1":1.2
+}
+
+GET my_inex_01/_search
